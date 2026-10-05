@@ -3,42 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>switch-icons in Switch Framework</title>
+  <title>switch-framework-icons in Switch Framework</title>
+  <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="./page.css" />
 </head>
 <body>
+  <header class="topbar">
+    <a class="brand" href="./index.html"><img src="../logo.svg" alt="Switch Framework" /><span>switch-framework-icons</span></a>
+    <nav>
+      <a href="./framework.html" aria-current="page">Framework</a>
+      <a href="./standalone.html">Independent</a>
+      <a href="./icons.html">Catalog</a>
+    </nav>
+    <button type="button" class="theme-btn" data-theme-toggle aria-label="Toggle light and dark mode">
+      <span class="switch_icon_moon theme-moon" aria-hidden="true"></span>
+      <span class="switch_icon_sun theme-sun" aria-hidden="true"></span>
+    </button>
+  </header>
   <div class="wrap">
-    <p><a href="./index.html">← All instructions</a></p>
-    <h1>Use with Switch Framework</h1>
-    <p class="lead"><code>create-switch-framework-app</code> installs this package next to <code>switch-framework</code> and <code>switch-framework-backend</code>. Do <strong>not</strong> add <code>switch-icons</code> to <code>switchFramework.imports</code> — that list is for third-party packs. Icons are part of the SDK and are always on the import map.</p>
-
+    <h1>Switch Framework usage</h1>
+    <p class="lead">Do not add <code>switch-framework-icons</code> to <code>switchFramework.imports</code>. Import the package so <code>&lt;sw-icon&gt;</code> is registered. Style it with inline styles or selectors — color inherits from CSS.</p>
     <div class="card">
-      <h2>1. One global stylesheet (simplest)</h2>
-      <p>Put this in <code>index.html</code> so <code>@font-face</code> is on the document:</p>
-      <pre>&lt;link rel="stylesheet" href="/switch-icons/style.css"&gt;</pre>
+      <h2>Register and render</h2>
+      <pre>import 'switch-framework-icons'; // registerComponent
+
+render() {
+  return `&lt;sw-icon name="magnifying_glass" size="18"&gt;&lt;/sw-icon&gt;`;
+}</pre>
     </div>
-
     <div class="card">
-      <h2>2. Inside a component styleSheet()</h2>
-      <p>CSS <code>@import</code> does not use the JavaScript import map. Use the mapped HTTP URL:</p>
+      <h2>Style with CSS or inline</h2>
       <pre>styleSheet() {
   return `
     &lt;style&gt;
-      @import url('/switch-icons/style.css');
-      .btn { display: inline-flex; align-items: center; gap: 8px; }
+      sw-icon { font-size: 18px; color: var(--main_text); }
+      .tab-btn.active sw-icon { color: #fff; }
     &lt;/style&gt;
   `;
 }
 
 render() {
-  return `&lt;button class="btn"&gt;&lt;span class="switch_icon_magnifying_glass" aria-hidden="true"&gt;&lt;/span&gt;Search&lt;/button&gt;`;
+  return `&lt;sw-icon name="heart" style="color:#e60023;font-size:22px"&gt;&lt;/sw-icon&gt;`;
 }</pre>
     </div>
-
-    <div class="card">
-      <h2>Do not</h2>
-      <p>Do not write <code>import 'switch-icons/style.css'</code> from JavaScript. That is a bundler feature. This stack has no bundler. Do not copy <code>assets/icons</code> into every app — install this package instead.</p>
-    </div>
   </div>
+  <script src="./theme.js"></script>
 </body>
 </html>
