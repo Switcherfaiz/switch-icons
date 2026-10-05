@@ -1,0 +1,70 @@
+:root {
+  --bg: #f7f4fb;
+  --ink: #1b1324;
+  --muted: #5c5268;
+  --line: #e4dced;
+  --card: #fff;
+  --accent: #6b3fa0;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.5 ui-sans-serif, system-ui, Segoe UI, sans-serif;
+}
+a { color: var(--accent); }
+.hero, .wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+}
+.hero img { width: 96px; height: auto; display: block; margin-bottom: 16px; }
+h1 { font-size: clamp(28px, 6vw, 40px); letter-spacing: -0.03em; margin: 0 0 8px; }
+.lead, .hero p { color: var(--muted); margin: 0 0 18px; }
+nav.links { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 8px; }
+nav.links a, .card a.btn {
+  display: inline-flex; align-items: center; min-height: 44px;
+  padding: 10px 14px; border-radius: 999px; background: var(--card);
+  border: 1px solid var(--line); text-decoration: none; color: var(--ink); font-weight: 600;
+}
+pre, code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+pre {
+  background: #1b1324; color: #f4eefe; padding: 14px 16px; border-radius: 12px;
+  overflow: auto; font-size: 13px; line-height: 1.45;
+}
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  padding: 18px 18px 8px; margin: 16px 0;
+}
+.card h2 { margin: 0 0 8px; font-size: 18px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: 8px;
+  padding: 0 16px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cell {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  min-height: 88px; padding: 12px 8px; border: 1px solid var(--line);
+  border-radius: 12px; background: var(--card); cursor: pointer; color: var(--ink);
+}
+.cell span { font-size: 22px; color: var(--accent); }
+.cell code { font-size: 11px; color: var(--muted); word-break: break-all; text-align: center; }
+#q {
+  width: 100%; max-width: 420px; min-height: 44px; border-radius: 12px;
+  border: 1px solid var(--line); padding: 10px 12px; font: inherit;
+}
+#toast {
+  position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%);
+  background: #1b1324; color: #fff; padding: 10px 14px; border-radius: 999px;
+  font-size: 13px;
+}
+@media (max-width: 640px) {
+  .hero, .wrap { padding: 20px 16px 40px; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); }
+}

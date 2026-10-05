@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>switch-icons in Switch Framework</title>
+  <link rel="stylesheet" href="./page.css" />
+</head>
+<body>
+  <div class="wrap">
+    <p><a href="./index.html">← All instructions</a></p>
+    <h1>Use with Switch Framework</h1>
+    <p class="lead"><code>create-switch-framework-app</code> installs this package next to <code>switch-framework</code> and <code>switch-framework-backend</code>. Do <strong>not</strong> add <code>switch-icons</code> to <code>switchFramework.imports</code> — that list is for third-party packs. Icons are part of the SDK and are always on the import map.</p>
+
+    <div class="card">
+      <h2>1. One global stylesheet (simplest)</h2>
+      <p>Put this in <code>index.html</code> so <code>@font-face</code> is on the document:</p>
+      <pre>&lt;link rel="stylesheet" href="/switch-icons/style.css"&gt;</pre>
+    </div>
+
+    <div class="card">
+      <h2>2. Inside a component styleSheet()</h2>
+      <p>CSS <code>@import</code> does not use the JavaScript import map. Use the mapped HTTP URL:</p>
+      <pre>styleSheet() {
+  return `
+    &lt;style&gt;
+      @import url('/switch-icons/style.css');
+      .btn { display: inline-flex; align-items: center; gap: 8px; }
+    &lt;/style&gt;
+  `;
+}
+
+render() {
+  return `&lt;button class="btn"&gt;&lt;span class="switch_icon_magnifying_glass" aria-hidden="true"&gt;&lt;/span&gt;Search&lt;/button&gt;`;
+}</pre>
+    </div>
+
+    <div class="card">
+      <h2>Do not</h2>
+      <p>Do not write <code>import 'switch-icons/style.css'</code> from JavaScript. That is a bundler feature. This stack has no bundler. Do not copy <code>assets/icons</code> into every app — install this package instead.</p>
+    </div>
+  </div>
+</body>
+</html>

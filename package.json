@@ -1,0 +1,39 @@
+{
+  "name": "switch-icons",
+  "version": "0.3.0",
+  "description": "First-party icon font for Switch Framework. CSS classes, no bundler.",
+  "author": "Switcherfaiz",
+  "github": "https://github.com/Switcherfaiz/switch-icons",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./style.css": "./style.css",
+    "./names.json": "./names.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "names.js",
+    "names.json",
+    "style.css",
+    "fonts",
+    "html",
+    "scripts",
+    "logo.svg"
+  ],
+  "scripts": {
+    "build": "node ./scripts/build-names.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "switch-framework",
+    "icons",
+    "icon-font",
+    "css",
+    "switch-icons"
+  ],
+  "license": "MIT"
+}
