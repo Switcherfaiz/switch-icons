@@ -3,28 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>switch-icons</title>
+  <title>switch-framework-icons</title>
+  <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="./page.css" />
 </head>
 <body>
-  <div class="hero">
-    <img src="../logo.svg" alt="Switch Framework" />
-    <h1>switch-icons</h1>
-    <p class="lead">First-party icon font for Switch Framework. CSS classes, no bundler, no allowlist. After <code>npm i switch-icons</code>, open these HTML files from <code>node_modules/switch-icons/html/</code>.</p>
-    <nav class="links">
-      <a href="./framework.html">Use with Switch Framework</a>
-      <a href="./standalone.html">Use in any HTML page</a>
-      <a href="./icons.html">Browse the catalog</a>
+  <header class="topbar">
+    <a class="brand" href="./index.html"><img src="../logo.svg" alt="Switch Framework" /><span>switch-framework-icons</span></a>
+    <nav>
+      <a href="./framework.html">Framework</a>
+      <a href="./standalone.html">Independent</a>
+      <a href="./icons.html">Catalog</a>
     </nav>
+    <button type="button" class="theme-btn" data-theme-toggle aria-label="Toggle light and dark mode">
+      <span class="switch_icon_moon theme-moon" aria-hidden="true"></span>
+      <span class="switch_icon_sun theme-sun" aria-hidden="true"></span>
+    </button>
+  </header>
+  <div class="hero">
+    <h1>switch-framework-icons</h1>
+    <p class="lead">Same font, two usages: CSS + <code>span</code> in any project, or <code>import 'switch-framework-icons'</code> and <code>&lt;sw-icon&gt;</code> in Switch Framework.</p>
     <div class="card">
-      <h2>Install</h2>
-      <pre>npm i switch-icons</pre>
+      <h2>Switch Framework</h2>
+      <pre>import 'switch-framework-icons'; // registerComponent
+
+render() {
+  return `&lt;sw-icon name="magnifying_glass" size="18"&gt;&lt;/sw-icon&gt;`;
+}</pre>
     </div>
     <div class="card">
-      <h2>Class API</h2>
-      <p>Keep using <code>switch_icon_…</code> class names:</p>
-      <pre>&lt;span class="switch_icon_magnifying_glass" aria-hidden="true"&gt;&lt;/span&gt;</pre>
+      <h2>Independent project</h2>
+      <pre>&lt;link rel="stylesheet" href="./node_modules/switch-framework-icons/style.css"&gt;
+&lt;span class="switch_icon_magnifying_glass" aria-hidden="true"&gt;&lt;/span&gt;</pre>
     </div>
   </div>
+  <script src="./theme.js"></script>
 </body>
 </html>

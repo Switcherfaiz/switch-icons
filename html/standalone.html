@@ -3,36 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>switch-icons without Switch Framework</title>
-  <link rel="stylesheet" href="./page.css" />
+  <title>switch-framework-icons without Switch Framework</title>
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./page.css" />
 </head>
 <body>
+  <header class="topbar">
+    <a class="brand" href="./index.html"><img src="../logo.svg" alt="Switch Framework" /><span>switch-framework-icons</span></a>
+    <nav>
+      <a href="./framework.html">Framework</a>
+      <a href="./standalone.html" aria-current="page">Independent</a>
+      <a href="./icons.html">Catalog</a>
+    </nav>
+    <button type="button" class="theme-btn" data-theme-toggle aria-label="Toggle light and dark mode">
+      <span class="switch_icon_moon theme-moon" aria-hidden="true"></span>
+      <span class="switch_icon_sun theme-sun" aria-hidden="true"></span>
+    </button>
+  </header>
   <div class="wrap">
-    <p><a href="./index.html">← All instructions</a></p>
-    <h1>Use independently</h1>
-    <p class="lead">v1 is CSS-only. There is no <code>peerDependencies.switch-framework</code>. Any HTML page can load the font.</p>
-
+    <h1>Independent usage</h1>
+    <p class="lead">Any HTML page. Load the CSS, then use a <code>span</code> with a <code>switch_icon_…</code> class.</p>
     <div class="card">
-      <h2>Install</h2>
-      <pre>npm i switch-icons</pre>
-      <p>Then open these files in a browser:</p>
-      <pre>node_modules/switch-icons/html/index.html
-node_modules/switch-icons/html/icons.html</pre>
-    </div>
+      <h2>Link the CSS, then use a span</h2>
+      <pre>&lt;link rel="stylesheet" href="./node_modules/switch-framework-icons/style.css"&gt;
 
-    <div class="card">
-      <h2>Link the CSS from your page</h2>
-      <pre>&lt;link rel="stylesheet" href="./node_modules/switch-icons/style.css"&gt;
-
-&lt;span class="switch_icon_heart" aria-hidden="true"&gt;&lt;/span&gt; Save</pre>
-      <p>Live sample on this page:</p>
-      <p style="font-size:28px;display:flex;gap:16px;color:#6b3fa0">
+&lt;span class="switch_icon_magnifying_glass" aria-hidden="true"&gt;&lt;/span&gt;
+&lt;span class="switch_icon_heart" style="color:#e60023"&gt;&lt;/span&gt;</pre>
+      <p style="font-size:28px;display:flex;gap:16px;color:var(--accent)">
         <span class="switch_icon_heart" aria-hidden="true"></span>
         <span class="switch_icon_magnifying_glass" aria-hidden="true"></span>
         <span class="switch_icon_github" aria-hidden="true"></span>
       </p>
     </div>
   </div>
+  <script src="./theme.js"></script>
 </body>
 </html>

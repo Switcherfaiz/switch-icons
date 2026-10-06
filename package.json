@@ -1,9 +1,17 @@
 {
-  "name": "switch-icons",
+  "name": "switch-framework-icons",
   "version": "0.3.0",
-  "description": "First-party icon font for Switch Framework. CSS classes, no bundler.",
+  "description": "First-party icon font for Switch Framework. CSS + span independently, or import 'switch-framework-icons' for <sw-icon>.",
   "author": "Switcherfaiz",
-  "github": "https://github.com/Switcherfaiz/switch-icons",
+  "github": "https://github.com/Switcherfaiz/switch-framework-icons",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Switcherfaiz/switch-framework-icons.git"
+  },
+  "homepage": "https://github.com/Switcherfaiz/switch-framework-icons#readme",
+  "bugs": {
+    "url": "https://github.com/Switcherfaiz/switch-framework-icons/issues"
+  },
   "type": "module",
   "main": "./index.js",
   "exports": {
@@ -33,7 +41,7 @@
     "icons",
     "icon-font",
     "css",
-    "switch-icons"
+    "switch-framework-icons"
   ],
   "license": "MIT"
 }
